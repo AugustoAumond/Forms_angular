@@ -1,0 +1,39 @@
+<form class="p-6 flex flex-col items-center gap-10">
+    <h1 class=" text-[20px] sm:text-[28px] text-center">Preencha os dados para gerar seu <br> cartão de visitas</h1>
+
+    <div class="flex  flex-col gap-5  w-[90%]">
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Cidade</h2>
+            <input (ngModelChange)="userDatas.city" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.city" class="bg-transparent w-full text-sm sm:text-lg flex-1 border-2 p-2 rounded-lg border-opacity-70 focus:bg-transparent" type="email" placeholder="Digite sua Cidade">
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Bairro</h2>
+            <input (ngModelChange)="userDatas.district" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.district" class="bg-transparent w-full text-sm sm:text-lg flex-1 border-2 p-2 rounded-lg focus:bg-transparent" type="text" placeholder="Digite seu Bairro">
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Endereço</h2>
+            <input (ngModelChange)="userDatas.street" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.street" class="bg-transparent w-full text-sm sm:text-lg flex-1 border-2 p-2 rounded-lg focus:bg-transparent" type="text" placeholder="Digite seu Endereço">
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Número de sua residência</h2>
+            <input (ngModelChange)="userDatas.numberOfTheHouse" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.numberOfTheHouse" class="bg-transparent w-full text-sm sm:text-lg flex-1 border-2 p-2 rounded-lg focus:bg-transparent" type="number" placeholder="Digite o Número de sua residência">
+        </div>
+
+        @if (validation !== '') {
+            <div class="text-red-600 text-sm sm:text-lg text-center">{{validation}}</div>
+        }
+    </div>
+
+    <div class="flex w-[90%] items-start justify-center gap-8">
+        <button type="button" (click)="closeModal()" class="h-11 bg-slate-900 text-sm sm:text-lg py-6 px-6 sm:px-12 flex items-center justify-center rounded-lg hover:opacity-75">
+            <span>Voltar</span>
+        </button>
+    
+        <button type="button" class="h-11 bg-slate-900 text-sm sm:text-lg p-6 flex items-center justify-center rounded-lg hover:opacity-75">
+            <span (click)="createCard()">Gerar Cartão</span>
+        </button>
+    </div>
+</form>

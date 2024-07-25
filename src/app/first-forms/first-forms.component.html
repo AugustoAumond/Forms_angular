@@ -1,0 +1,49 @@
+<form class="p-6 flex flex-col  items-center gap-10">
+    <h1 class="text-[20px]  sm:text-[28px] text-center">Preencha os dados para gerar seu <br> cartão de visitas</h1>
+
+    <div class="flex flex-col gap-5 w-[90%]">
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Nome</h2>
+
+            <div class="w-full px-2 flex gap-2 items-center flex-1 border-2 p-2 rounded-lg focus:bg-transparent">
+                <fa-icon class="text-white opacity-30 size-4 flex" [icon]="user"></fa-icon>
+                <input (ngModelChange)="userDatas.name" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.name" class="bg-transparent w-full text-sm sm:text-lg flex-1 outline-none" type="text" placeholder="Digite seu Nome">
+            </div>
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Idade</h2>
+
+            <div class="w-full px-2 flex gap-2 items-center flex-1 border-2 p-2 rounded-lg focus:bg-transparent">
+                <fa-icon class="text-white opacity-0 size-4 flex" [icon]="user"></fa-icon>
+                <input (ngModelChange)="userDatas.age" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.age" class="bg-transparent w-full text-sm sm:text-lg flex-1 outline-none" type="number" placeholder="Digite sua Idade">
+            </div>
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Telefone</h2>
+
+            <div class="w-full px-2 flex gap-2 items-center flex-1 border-2 p-2 rounded-lg focus:bg-transparent">
+                <fa-icon class="text-white opacity-30 size-4 flex" [icon]="phone"></fa-icon>
+                <input (ngModelChange)="userDatas.phone" [ngModelOptions]="{standalone: true}" mask="(00) 0 0000-0000" [(ngModel)]="userDatas.phone" class="bg-transparent w-full text-sm sm:text-lg flex-1 outline-none" type="tel" placeholder="( )       -    ">
+            </div>
+        </div>
+    
+        <div class="flex flex-col items-start justify-start gap-2">
+            <h2 class="text-sm sm:text-lg">Email</h2>
+
+            <div class="w-full px-2 flex gap-2 items-center flex-1 border-2 p-2 rounded-lg focus:bg-transparent">
+                <fa-icon class="text-white opacity-30 size-4 flex" [icon]="email"></fa-icon>
+                <input (ngModelChange)="userDatas.email" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userDatas.email" class="bg-transparent w-full text-sm sm:text-lg flex-1 outline-none" type="email" required placeholder="Digite seu Email">
+            </div>
+        </div>
+
+        @if (validation !== '') {
+            <div class="text-red-600 text-sm sm:text-lg text-center">{{validation}}</div>
+        }
+    </div>
+
+    <button (click)="getUserDatas()" class="h-11 bg-slate-900 text-sm sm:text-lg p-6 flex items-center justify-center rounded-lg hover:opacity-75">
+        <span>Continuar</span>
+    </button>
+</form>

@@ -1,0 +1,21 @@
+<router-outlet>
+<div class="w-screen h-screen bg-slate-900 text-white m-auto flex items-center justify-center">
+    <app-first-forms (messageDatas)="receiveDatas($event)" class="w-3/4 max-w-[600px] h-[700px] border-2 border-white border-opacity-50 bg-sky-950 rounded-3xl">
+        
+    </app-first-forms>
+
+    @if ( datasUserFirstComponent?.isFirstFormsComplete === true) {
+        <app-second-forms (messageCloseSecondForms)="receiveCloseModal($event)" (messageCreateCard)="receiveDatasSecondForm($event)" class="fixed border-white border-opacity-50 m-auto w-3/4 max-w-[600px] h-[700px] border-2 bg-sky-950 rounded-3xl mt-10 ml-10">
+
+        </app-second-forms>
+    }
+
+    @if (datasUserSecondComponent?.isSecondFormsComplete === true){
+        <app-card [datasFirstComponent]="datasUserFirstComponent" [datasSecondComponent]="datasUserSecondComponent" class="fixed items-center justify-center w-screen h-screen bg-slate-900">
+
+        </app-card>
+    }
+</div>
+
+
+<router-outlet />
